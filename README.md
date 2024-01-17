@@ -48,16 +48,16 @@ Those flags can be omitted, if the following environment variables are used inst
 The tool also has a built-in help, at the time of writing it said:
 
     NAME:
-       logingestor - Follow a log file and send lines to Azure Monitor Logs
+       logingestor - Tail a log file and send lines to Azure Monitor Logs
     
     USAGE:
        logingestor [global options] command [command options] [arguments...]
     
     VERSION:
-       9377315-dirty
+       v0.0.1-0-g05b1105-dirty
     
     DESCRIPTION:
-       A tool to follow a log file and send lines to Azure Monitor Logs
+       A tool to tail a log file and send lines to Azure Monitor Logs
     
     COMMANDS:
        help, h  Shows a list of commands or help for one command
@@ -66,6 +66,7 @@ The tool also has a built-in help, at the time of writing it said:
        --endpoint ENDPOINT        The ENDPOINT to send data to [$AZURE_MONITOR_ENDPOINT]
        --rule-id RULE-ID          The RULE-ID to send data to [$AZURE_MONITOR_RULE_ID]
        --stream-name STREAM-NAME  The STREAM-NAME to send data to [$AZURE_MONITOR_STREAM_NAME]
+       --tee                      If set, processed entries are output to stdout (default: false)
        --help, -h                 show help
        --version, -v              print the version
 
@@ -78,7 +79,3 @@ These are "stored" here for later reference.
 - [Azure Monitor Ingestion client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest)
 - [Logs Ingestion API in Azure MonitorLogs Ingestion API in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-ingestion-api-overview)
 - [Sample code to send data to Azure Monitor using Logs ingestion API](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/tutorial-logs-ingestion-code?tabs=go)
-
-### Compile for Linux on i386
-
-GOOS=linux GOARCH=386 go build logingestor.go

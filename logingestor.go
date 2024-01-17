@@ -16,6 +16,7 @@ var version = "undefined"
 
 func main() {
 	var logfile, endpoint, streamName, ruleId string
+	var tee bool
 
 	app := &cli.App{
 		Name:        "logingestor",
@@ -41,6 +42,12 @@ func main() {
 				Usage:       "The `STREAM-NAME` to send data to",
 				EnvVars:     []string{"AZURE_MONITOR_STREAM_NAME"},
 				Destination: &streamName,
+			},
+			&cli.BoolFlag{
+				Name:        "tee",
+				Value:       false,
+				Usage:       "If set, processed entries are output to stdout",
+				Destination: &tee,
 			},
 		},
 		Action: func(cCtx *cli.Context) error {
@@ -75,7 +82,9 @@ func main() {
 				// wrap line in [] so the ingestion accepts it
 				wrappedLine := "[" + line.String() + "]"
 
-				fmt.Println(wrappedLine)
+				if tee {
+					fmt.Println(wrappedLine)
+				}
 
 				// upload logs
 				_, err = client.Upload(context.TODO(), ruleId, streamName, []byte(wrappedLine), nil)
