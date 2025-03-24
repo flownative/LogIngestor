@@ -25,7 +25,7 @@ jobs:
       run: |
         echo "RELEASE_TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
-    - uses: wangyoucao577/go-release-action@v1.41
+    - uses: wangyoucao577/go-release-action@v1.53
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
