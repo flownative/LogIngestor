@@ -6,7 +6,7 @@ toolchain go1.24.1
 
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.8.2
-	github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest v0.1.2
+	github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs v1.0.0
 	github.com/papertrail/go-tail v0.0.0-20221103124010-5087eb6a0a07
 	github.com/urfave/cli/v2 v2.27.6
 )

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/monitor/azingest"
+	"github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs"
 	"github.com/papertrail/go-tail/follower"
 	"github.com/urfave/cli/v2"
 	"io"
@@ -57,7 +57,7 @@ func main() {
 				log.Fatalf("failed to obtain a credential: %v", err)
 			}
 
-			client, err := azingest.NewClient(endpoint, cred, nil)
+			client, err := azlogs.NewClient(endpoint, cred, nil)
 			if err != nil {
 				// TODO: handle error better
 				log.Fatalf("failed to obtain a client: %v", err)
