@@ -5,7 +5,7 @@ This tool has the sole purpose of tailing a JSON-formatted log file and push new
 ## TODO
 
 - [ ] (better) error handling
-- [ ] test with long-time operation
+- [x] test with long-time operation
 
 ## Setting up credentials
 
