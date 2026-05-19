@@ -3,13 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
+	"log"
+	"os"
+
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs"
 	"github.com/papertrail/go-tail/follower"
 	"github.com/urfave/cli/v2"
-	"io"
-	"log"
-	"os"
 )
 
 var version = "undefined"
